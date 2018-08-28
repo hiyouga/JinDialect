@@ -1,0 +1,34 @@
+<!--pages/dict/dict.wxml-->
+<view class="main">
+  <view class="pickers">
+    <picker bindchange="changeType" value="{{typeIndex}}" range="{{fulltypes}}" style="border-right:#666 solid 0.5rpx">
+      <view class="picker">
+        {{types[typeIndex]}}
+      </view>
+    </picker>
+    <picker bindchange="changeCate" value="{{cateIndex}}" range="{{categories}}">
+      <view class="picker">
+        {{categories[cateIndex]}}
+      </view>
+    </picker>
+  </view>
+  <view class="tr bg-g">
+    <view class="th">拼写</view>
+    <view class="th">拟声</view>
+    <view class="th">语种</view>
+    <view class="th">试听</view>
+  </view>
+  <view class="dict">
+    <block wx:key="" wx:for="{{showWords}}" wx:for-item="word">
+      <view class="tr {{index % 2 == 0 ? 'bg-g' : ''}}" data-idx="{{index}}" bindlongpress="add_fav">
+        <view class="td">{{word.spell}}</view>
+        <view class="td">{{word.sounds}}</view>
+        <view class="td">{{word.type}}</view>
+        <view class="td">
+          <a data-idx="{{index}}" data-href="{{word.files}}" bindtap="{{word.play == 1 ? 'pauseaudio' : 'playaudio'}}">{{word.play == 1 ? '‖' : '▶'}}</a>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="tips">长按加入收藏</view>
+</view>

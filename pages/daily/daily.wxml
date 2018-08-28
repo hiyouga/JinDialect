@@ -1,0 +1,8 @@
+<view>
+  <block wx:key="" wx:for="{{urls}}" wx:for-item="url">
+    <view class="block-style" bindtap="openview" data-idx="{{index}}">
+        <text class="url-title">{{url.title}}</text>
+        <text class="url-date">{{url.date}}</text>
+    </view>
+  </block>
+</view>

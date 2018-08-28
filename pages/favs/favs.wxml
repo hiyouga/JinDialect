@@ -1,0 +1,51 @@
+<!--pages/favs/favs.wxml-->
+<view>
+  <view class="mnavbar">
+    <block wx:for="{{mnavbarsArr}}" wx:key="*this">
+      <view id="{{index}}" class="navbar-title-text {{activeIndex == index ? 'navbar-title-text-on' : ''}}" catch:tap="mnavbarclik">{{item}}</view>
+    </block>
+  </view>
+  <view class="slider">
+    <view class="pointer" style="transform: translateX({{mtranslatex}}px);"></view>
+  </view>
+  <view class="fav-dict" wx:if="{{activeIndex == 0}}">
+    <view class="tr bg-g">
+      <view class="th">拼写</view>
+      <view class="th">拟声</view>
+      <view class="th">语种</view>
+      <view class="th">试听</view>
+    </view>
+    <block wx:key="" wx:for="{{fav_dict}}" wx:for-item="word">
+      <view class="tr {{index % 2 == 0 ? 'bg-g' : ''}}" data-idx="{{index}}" bindlongpress="del_fav">
+        <view class="td">{{word.spell}}</view>
+        <view class="td">{{word.sounds}}</view>
+        <view class="td">{{word.type}}</view>
+        <view class="td">
+          <a data-idx="{{index}}" data-href="{{word.files}}" bindtap="{{word.play == 1 ? 'pauseaudio' : 'playaudio'}}">{{word.play == 1 ? '‖' : '▶'}}</a>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="fav-sents" wx:if="{{activeIndex == 1}}">
+    <view class="tr bg-g">
+      <view class="th" style="width:70%;">句子</view>
+      <view class="th" style="width:20%;">语种</view>
+      <view class="th" style="width:10%;">试听</view>
+    </view>
+    <block wx:key="" wx:for="{{fav_sents}}" wx:for-item="sent">
+      <view data-idx="{{index}}" bindlongpress="del_fav">
+        <view class="tr">
+          <view class="td" style="width:70%;">{{sent.content}}</view>
+          <view class="td" style="width:20%;">{{sent.type}}</view>
+          <view class="td" style="width:10%;">
+            <a data-idx="{{index}}" data-sid="{{sent.sid}}" data-href="{{sent.files}}" bindtap="{{sent.play == 1 ? 'pauseaudio' : 'playaudio'}}">{{sent.play == 1 ? '‖' : '▶'}}</a>
+          </view>
+        </view>
+        <view class="tr bg-g">
+          <view class="wtd">{{sent.comment}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="tips">长按取消收藏</view>
+</view>

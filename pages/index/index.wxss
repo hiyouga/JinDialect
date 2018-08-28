@@ -1,21 +1,107 @@
-/**index.wxss**/
-.userinfo {
+.slide-image {
+  width: 750rpx;
+  height: 300rpx;
+}
+
+.slideshow {
+  position: relative;
+}
+
+.slideswiper {
+  height: 300rpx;
+}
+
+.navbar {
+  width: 90%;
+  margin: 3.6% 5%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.navbtn {
+  margin: 0 auto;
+  text-align: center;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.menu_icon {
+  width: 80rpx;
+  height: 80rpx;
+  display: block;
 }
 
-.usermotto {
-  margin-top: 200px;
+.menu_text {
+  font-size: 32rpx;
+}
+
+/* 指示器  */
+
+.dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.dots .dot {
+  margin: 0 8rpx;
+  width: 14rpx;
+  height: 14rpx;
+  background: #eee;
+  border-radius: 8rpx;
+  transition: all 0.6s;
+}
+
+.dots .dot.active {
+  width: 30rpx;
+  background: yellow;
+}
+
+.mnavbar {
+  background-color: #eee;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* 分栏  */
+
+.navbar-title-text {
+  padding: 10rpx;
+}
+
+.navbar-title-text-on {
+  font-weight: bold;
+}
+
+.slider {
+  background-color: #eee;
+}
+
+.pointer {
+  width: 90rpx;
+  height: 4rpx;
+  background-color: #000;
+  transition: all 0.1s linear;
+}
+
+.float {
+  position: fixed;
+  display: flex;
+  right: 30rpx;
+  bottom: 35rpx;
+  height: 70rpx;
+  width: 70rpx;
+  background-color: rgba(168, 238, 255, 0.76);
+  justify-content: center;
+  align-items: middle;
+  border-radius: 100%;
+}
+
+.plus {
+  color: rgb(71, 120, 255);
+  font-size: 55rpx;
+  font-family: Courier, monospace;
 }

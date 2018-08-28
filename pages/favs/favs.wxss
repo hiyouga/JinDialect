@@ -1,0 +1,43 @@
+/* pages/favs/favs.wxss */
+
+.mnavbar {
+  background-color: #eee;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.navbar-title-text {
+  padding: 10rpx;
+}
+
+.navbar-title-text-on {
+  font-weight: bold;
+}
+
+.slider {
+  background-color: #eee;
+}
+
+.pointer {
+  width: 90rpx;
+  height: 4rpx;
+  background-color: #000;
+  transition: all 0.1s linear;
+}
+
+.wtd {
+  width: 90%;
+  justify-content: center;
+  text-align: left;
+  font-size: 28rpx;
+  text-indent: 1em;
+}
+
+.fav-dict {
+  margin-bottom: 55rpx;
+}
+
+.fav-sents {
+  margin-bottom: 55rpx;
+}

@@ -1,0 +1,19 @@
+/* pages/dict/dict.wxss */
+
+.pickers {
+  display: flex;
+  flex-direction: row;
+}
+
+picker {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  padding: 20rpx 0;
+}
+
+.dict {
+  margin-bottom: 55rpx;
+}

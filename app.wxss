@@ -1,10 +1,55 @@
 /**app.wxss**/
-.container {
-  height: 100%;
+
+page {
+  background-color: whitesmoke;
+}
+
+.table {
+  border: 0px solid darkgray;
+}
+
+.tr {
   display: flex;
-  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  /*height: 2.2rem;*/
+  line-height: 180%;
   align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
+}
+
+.td {
+  width: 40%;
+  justify-content: center;
+  text-align: center;
+  font-size: 28rpx;
+  padding: 0.2em 0;
+}
+
+.bg-w {
+  background: snow;
+}
+
+.bg-g {
+  background: #e6f3f9;
+}
+
+.th {
+  width: 40%;
+  justify-content: center;
+  background: #39f;
+  color: #fff;
+  display: flex;
+  height: 2.2rem;
+  align-items: center;
+  font-size: 28rpx;
+}
+
+.tips {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  font-size: 25rpx;
+  padding: 10rpx;
+  background-color: #e6e6e6;
+}

@@ -1,13 +1,65 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+<view class="slideshow">
+  <swiper class="slideswiper" autoplay="true" interval="5000" duration="1000" bindchange="swiperChange">
+    <block wx:for="{{images}}" wx:key="*this">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" mode="aspectFill" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="dots">
+    <block wx:for="{{images.length}}" wx:key="unique">
+      <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
     </block>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+</view>
+<view class="container">
+  <view class="navbar">
+    <a class="navbtn" data-href="../dict/dict" bindtap="navbarTap">
+      <image class="menu_icon" src="../../res/imgs/dict.png"></image>
+      <text class="menu_text">词典</text>
+    </a>
+    <a class="navbtn" data-href="../sents/sents" bindtap="navbarTap">
+      <image class="menu_icon" src="../../res/imgs/sents.png"></image>
+      <text class="menu_text">句子</text>
+    </a>
+    <a class="navbtn" data-href="../favs/favs" bindtap="navbarTap">
+      <image class="menu_icon" src="../../res/imgs/favs.png"></image>
+      <text class="menu_text">收藏</text>
+    </a>
+  </view>
+  <view class="history">
+    <view class="mnavbar">
+      <block wx:for="{{mnavbarsArr}}" wx:key="*this">
+        <view id="{{index}}" class="navbar-title-text {{activeIndex == index ? 'navbar-title-text-on' : ''}}" catch:tap="mnavbarclik">{{item}}</view>
+      </block>
+    </view>
+    <view class="slider">
+      <view class="pointer" style="transform: translateX({{mtranslatex}}px);"></view>
+    </view>
+    <view class="his-dict" wx:if="{{activeIndex == 0}}">
+      <block wx:key="" wx:for="{{his_dict}}" wx:for-item="word">
+        <view class="tr {{index % 2 == 0 ? 'bg-g' : ''}}">
+          <view class="td">{{word.spell}}</view>
+          <view class="td">{{word.type}}</view>
+          <view class="td">
+            <a data-idx="{{index}}" data-wid="{{word.wid}}" data-href="{{word.files}}" bindtap="{{word.play == 1 ? 'pauseaudio' : 'playaudio'}}">{{word.play == 1 ? '‖' : '▶'}}</a>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="his-sents" wx:if="{{activeIndex == 1}}">
+      <block wx:key="" wx:for="{{his_sents}}" wx:for-item="sent">
+        <view class="tr {{index % 2 == 0 ? 'bg-g' : ''}}">
+          <view class="td" style="width:70%;">{{sent.content}}</view>
+          <view class="td" style="width:20%;">{{sent.type}}</view>
+          <view class="td" style="width:10%;">
+            <a data-idx="{{index}}" data-sid="{{sent.sid}}" data-href="{{sent.files}}" bindtap="{{sent.play == 1 ? 'pauseaudio' : 'playaudio'}}">{{sent.play == 1 ? '‖' : '▶'}}</a>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="float">
+    <a class="plus" bindtap="upload">+</a>
   </view>
 </view>

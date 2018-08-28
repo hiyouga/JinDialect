@@ -1,0 +1,12 @@
+/* pages/sents/sents.wxss */
+.wtd {
+  width: 90%;
+  justify-content: center;
+  text-align: left;
+  font-size: 28rpx;
+  text-indent: 1em;
+}
+
+.sents {
+  margin-bottom: 55rpx;
+}

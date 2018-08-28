@@ -1,0 +1,2 @@
+<!--pages/upload/dict.wxml-->
+<a bindtap="startRecoder">开始录音</a>

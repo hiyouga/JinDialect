@@ -1,0 +1,10 @@
+<!--pages/video/video.wxml-->
+<view>
+  <block wx:key="" wx:for="{{txvs}}" wx:for-item="txv">
+    <view class="txv-container">
+      <txv-video vid="{{txv.vid}}" playerid="txv-{{index}}" autoplay="{{false}}"></txv-video>
+      <text class="video-title">{{txv.title}}</text>
+      <text class="video-date">{{txv.date}}</text>
+    </view>
+  </block>
+</view>

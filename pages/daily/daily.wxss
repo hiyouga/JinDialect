@@ -1,0 +1,23 @@
+/* pages/daily/daily.wxss */
+
+.block-style {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: #999 solid 1rpx;
+  padding: 25rpx 30rpx;
+  flex-direction: column;
+}
+
+.url-title {
+  font-size: 30rpx;
+  width: 100%;
+}
+
+.url-date {
+  font-size: 25rpx;
+  color: #666;
+  width: 100%;
+  margin-top: 15rpx;
+}

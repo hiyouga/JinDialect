@@ -1,12 +1,50 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/daily/daily",
+    "pages/daily/webview",
+    "pages/video/video",
+    "pages/dict/dict",
+    "pages/sents/sents",
+    "pages/favs/favs",
+    "pages/upload/dict",
+    "pages/upload/sents"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#eee",
+    "navigationBarTitleText": "说晋",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#1196db",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "res/imgs/index_on.png",
+        "iconPath": "res/imgs/index_off.png",
+        "pagePath": "pages/index/index",
+        "text": "主页"
+      },
+      {
+        "selectedIconPath": "res/imgs/daily_on.png",
+        "iconPath": "res/imgs/daily_off.png",
+        "pagePath": "pages/daily/daily",
+        "text": "日推"
+      },
+      {
+        "selectedIconPath": "res/imgs/video_on.png",
+        "iconPath": "res/imgs/video_off.png",
+        "pagePath": "pages/video/video",
+        "text": "视频"
+      }
+    ]
+  },
+  "plugins": {
+    "tencentvideo": {
+      "version": "1.1.6",
+      "provider": "wxa75efa648b60994b"
+    }
   }
 }

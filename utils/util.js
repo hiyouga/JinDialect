@@ -15,5 +15,28 @@ const formatNumber = n => {
 }
 
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  formatDate: datestr => {
+    var tempArr = datestr.split('-')
+    return tempArr[0] + '年' + tempArr[1] + '月' + tempArr[2] + '日'
+  },
+  getmscreenWidth: function() { // rpx 转 px
+    let mscreenWidth = 0;
+    wx.getSystemInfo({
+      success: function (res) {
+        mscreenWidth = res.screenWidth
+      },
+    });
+    return mscreenWidth / 750;
+  },
+  copyObj: function (obj) {
+    if (typeof obj != 'object') {
+      return obj;
+    }
+    var newobj = {};
+    for (var attr in obj) {
+      newobj[attr] = this.copyObj(obj[attr]);
+    }
+    return newobj;
+  }
 }

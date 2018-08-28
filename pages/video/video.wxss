@@ -1,0 +1,21 @@
+/* pages/video/video.wxss */
+.txv-container {
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25rpx;
+}
+
+.video-title {
+  font-size: 30rpx;
+  width: 100%;
+  padding: 10rpx 20rpx;
+}
+
+.video-date {
+  font-size: 25rpx;
+  color: #666;
+  width: 100%;
+  padding: 5rpx 20rpx;
+}

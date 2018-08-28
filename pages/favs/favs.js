@@ -1,20 +1,20 @@
+// pages/favs/favs.js
+
 const util = require("../../utils/util.js");
 const app = getApp()
+
 Page({
   player: undefined,
 
+  /**
+   * 页面的初始数据
+   */
   data: {
-    images: [
-      "../../res/imgs/slide01.jpg",
-      "../../res/imgs/slide02.jpg",
-      "../../res/imgs/slide03.jpg"
-    ],
-    swiperCurrent: 0,
-    mnavbarsArr: ["听过的词语", "听过的句子"],
+    mnavbarsArr: ["词语", "句子"],
     activeIndex: 0,
     mtranslatex: 0,
-    his_dict: [],
-    his_sents: []
+    fav_dict: [],
+    fav_sents: []
   },
 
   onLoad: function () {
@@ -23,47 +23,35 @@ Page({
     })
   },
 
-  onShow: function() {
+  onShow: function () {
     this.setData({
-      his_dict: app.globalData.his_dict,
-      his_sents: app.globalData.his_sents
-    });
-  },
-
-  swiperChange: function(e) {
-    this.setData({
-      swiperCurrent: e.detail.current
-    });
-  },
-
-  navbarTap: function(e) {
-    wx.navigateTo({
-      url: e.currentTarget.dataset.href
+      fav_dict: app.globalData.fav_dict,
+      fav_sents: app.globalData.fav_sents
     })
   },
 
-  mnavbarclik: function(e) {
+  mnavbarclik: function (e) {
     this.setData({
       activeIndex: e.currentTarget.id
-    });
+    })
     if (e.currentTarget.id == 0) {
       this.setData({
         mtranslatex: util.getmscreenWidth() * 145,
-      });
+      })
     }
     if (e.currentTarget.id == 1) {
       this.setData({
         mtranslatex: util.getmscreenWidth() * 520,
-      });
+      })
     }
   },
 
   playaudio: function (e) {
     var ln = ''
     if (this.data.activeIndex == 1) {
-      ln = 'his_sents'
+      ln = 'fav_sents'
     } else {
-      ln = 'his_dict'
+      ln = 'fav_dict'
     }
     if (this.player != undefined) {
       this.setData({
@@ -98,22 +86,33 @@ Page({
     }
   },
 
-  upload: function() {
-    wx.showActionSheet({
-      itemList: ['上传词语', '上传句子'],
-      success: function(res) {
-        if (res.tapIndex == 0) {
-          wx.navigateTo({
-            url: '../upload/dict'
+  del_fav: function (e) {
+    var ln = ''
+    if (this.data.activeIndex == 1) {
+      ln = 'fav_sents'
+    } else {
+      ln = 'fav_dict'
+    }
+    wx.showModal({
+      title: '提示',
+      content: '您确定要删除该收藏吗',
+      success: status => {
+        if (status.confirm) {
+          app.globalData[ln].splice(e.currentTarget.dataset.idx, 1)
+          this.setData({
+            [ln]: app.globalData[ln]
           })
-        } else {
-          wx.navigateTo({
-            url: '../upload/sents'
+          wx.setStorage({
+            key: ln,
+            data: app.globalData[ln]
+          })
+          wx.showToast({
+            title: '删除成功',
+            icon: 'none',
+            duration: 1000,
+            mask: true
           })
         }
-      },
-      fail: function(res) {
-        //console.log(res.errMsg)
       }
     })
   }
