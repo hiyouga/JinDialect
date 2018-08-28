@@ -1,12 +1,14 @@
 <!--pages/favs/favs.wxml-->
 <view>
-  <view class="mnavbar">
-    <block wx:for="{{mnavbarsArr}}" wx:key="*this">
-      <view id="{{index}}" class="navbar-title-text {{activeIndex == index ? 'navbar-title-text-on' : ''}}" catch:tap="mnavbarclik">{{item}}</view>
-    </block>
-  </view>
-  <view class="slider">
-    <view class="pointer" style="transform: translateX({{mtranslatex}}px);"></view>
+  <view class="fixtop">
+    <view class="mnavbar">
+      <block wx:for="{{mnavbarsArr}}" wx:key="*this">
+        <view id="{{index}}" class="navbar-title-text {{activeIndex == index ? 'navbar-title-text-on' : ''}}" catch:tap="mnavbarclik">{{item}}</view>
+      </block>
+    </view>
+    <view class="slider">
+      <view class="pointer" style="transform: translateX({{mtranslatex}}px);"></view>
+    </view>
   </view>
   <view class="fav-dict" wx:if="{{activeIndex == 0}}">
     <view class="tr bg-g">

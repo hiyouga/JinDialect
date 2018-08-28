@@ -12,8 +12,16 @@ picker {
   align-items: center;
   font-size: 30rpx;
   padding: 20rpx 0;
+  background: #f9f9f9;
+}
+
+.fixtop {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .dict {
+  margin-top: 165rpx;
   margin-bottom: 55rpx;
 }

@@ -59,7 +59,7 @@
       </block>
     </view>
   </view>
-  <view class="float">
+  <view class="float" style="display:none;">
     <a class="plus" bindtap="upload">+</a>
   </view>
 </view>

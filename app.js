@@ -19,6 +19,7 @@ App({
 
   globalData: {
     domain: 'https://buaa.hiyouga.top/jsjm/',
+    limit: 20,
     his_dict: [],
     his_sents: [],
     fav_dict: [],

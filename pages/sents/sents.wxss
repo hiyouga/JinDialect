@@ -7,6 +7,13 @@
   text-indent: 1em;
 }
 
+.fixtop {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
 .sents {
+  margin-top: 80rpx;
   margin-bottom: 55rpx;
 }

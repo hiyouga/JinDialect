@@ -4,13 +4,13 @@ header('Content-type: application/json');
 require_once 'database.php';
 $data = array();
 if ($_GET['source'] == 'dict') {
-	$sql = "SELECT * FROM dict ORDER BY convert(spell using gbk) ASC";
+	$sql = "SELECT * FROM dict ORDER BY convert(spell using gbk) ASC LIMIT " . $_GET['limit'] . " OFFSET " . $_GET['offset'];
 	$res = mysqli_query($link, $sql);
 	while ($row = mysqli_fetch_assoc($res)) {
 		$data[] = $row;
 	}
 } elseif ($_GET['source'] == 'sents') {
-	$sql = "SELECT * FROM sents";
+	$sql = "SELECT * FROM sents LIMIT " . $_GET['limit'] . " OFFSET " . $_GET['offset'];
 	$res = mysqli_query($link, $sql);
 	while ($row = mysqli_fetch_assoc($res)) {
 		$data[] = $row;

@@ -34,10 +34,18 @@
   text-indent: 1em;
 }
 
+.fixtop {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
 .fav-dict {
+  margin-top: 75rpx;
   margin-bottom: 55rpx;
 }
 
 .fav-sents {
+  margin-top: 75rpx;
   margin-bottom: 55rpx;
 }

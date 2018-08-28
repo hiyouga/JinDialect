@@ -1,22 +1,24 @@
 <!--pages/dict/dict.wxml-->
 <view class="main">
-  <view class="pickers">
-    <picker bindchange="changeType" value="{{typeIndex}}" range="{{fulltypes}}" style="border-right:#666 solid 0.5rpx">
-      <view class="picker">
-        {{types[typeIndex]}}
-      </view>
-    </picker>
-    <picker bindchange="changeCate" value="{{cateIndex}}" range="{{categories}}">
-      <view class="picker">
-        {{categories[cateIndex]}}
-      </view>
-    </picker>
-  </view>
-  <view class="tr bg-g">
-    <view class="th">拼写</view>
-    <view class="th">拟声</view>
-    <view class="th">语种</view>
-    <view class="th">试听</view>
+  <view class="fixtop">
+    <view class="pickers">
+      <picker bindchange="changeType" value="{{typeIndex}}" range="{{fulltypes}}" style="border-right:#666 solid 0.5rpx">
+        <view class="picker">
+          {{types[typeIndex]}}
+        </view>
+      </picker>
+      <picker bindchange="changeCate" value="{{cateIndex}}" range="{{categories}}">
+        <view class="picker">
+          {{categories[cateIndex]}}
+        </view>
+      </picker>
+    </view>
+    <view class="tr bg-g">
+      <view class="th">拼写</view>
+      <view class="th">拟声</view>
+      <view class="th">语种</view>
+      <view class="th">试听</view>
+    </view>
   </view>
   <view class="dict">
     <block wx:key="" wx:for="{{showWords}}" wx:for-item="word">

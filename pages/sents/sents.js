@@ -1,12 +1,15 @@
 // pages/sents/sents.js
 const app = getApp()
-const util = require("../../utils/util.js");
+const util = require("../../utils/util.js")
 
 Page({
+  hasMore: true,
+
   player: undefined,
 
   data: {
-    sents: []
+    sents: [],
+    offset: 0
   },
 
   onLoad: function (options) {
@@ -14,17 +17,25 @@ Page({
   },
 
   getList: function () {
+    var _this = this
     wx.request({
       url: app.globalData.domain + 'query.php',
       data: {
-        source: 'sents'
+        source: 'sents',
+        limit: app.globalData.limit,
+        offset: app.globalData.limit * _this.data.offset
       },
       method: 'GET',
       dataType: 'json',
       success: res => {
-        this.setData({
-          sents: res.data
-        })
+        if (res.data.length == 0) {
+          _this.hasMore = false
+        } else {
+          this.setData({
+            sents: _this.data.sents.concat(res.data)
+          })
+        }
+        wx.hideLoading()
       }
     })
   },
@@ -118,6 +129,19 @@ Page({
         }
       }
     })
+  },
+
+  onReachBottom: function () {
+    if (this.hasMore) {
+      wx.showLoading({
+        title: '加载中',
+        mask: true
+      })
+      this.setData({
+        offset: this.data.offset + 1
+      })
+      this.getList()
+    }
   }
   
 })

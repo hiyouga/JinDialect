@@ -1,9 +1,11 @@
 <!--pages/sents/sents.wxml-->
 <view class="main">
-  <view class="tr bg-g">
-    <view class="th" style="width:70%;">句子</view>
-    <view class="th" style="width:20%;">语种</view>
-    <view class="th" style="width:10%;">试听</view>
+  <view class="fixtop">
+    <view class="tr bg-g">
+      <view class="th" style="width:70%;">句子</view>
+      <view class="th" style="width:20%;">语种</view>
+      <view class="th" style="width:10%;">试听</view>
+    </view>
   </view>
   <view class="sents">
     <block wx:key="" wx:for="{{sents}}" wx:for-item="sent">
